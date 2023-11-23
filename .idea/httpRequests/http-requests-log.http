@@ -1,0 +1,45 @@
+POST http://localhost:8080/antrenori
+Content-Type: application/json
+
+{
+ "firstName": "Mihai",
+  "lastName": "Martin",
+  "contactInformation": "mihaimartin@yahoo.com"
+}
+
+<> 2023-11-23T020630.200.html
+
+###
+
+POST http://localhost:8080/antrenori
+Content-Type: application/json
+
+{
+ "firstName": "Mihai",
+  "lastName": "Martin",
+  "contactInformation": "mihaimartin@yahoo.com"
+}
+
+<> 2023-11-23T020429.200.html
+
+###
+
+POST http://localhost:8080/antrenori
+Content-Type: application/json
+
+{
+ "firstName": "Mihai",
+  "lastName": "Martin",
+  "contactInformation": "mihaimartin@yahoo.com"
+}
+
+<> 2023-11-23T020417.200.html
+
+###
+
+GET http://localhost:8080/antrenori
+
+<> 2023-11-23T015844.200.html
+
+###
+

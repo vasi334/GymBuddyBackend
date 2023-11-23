@@ -11,17 +11,39 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto
-{
-    // need to modify this
+
+public class UserDb {
+
     private Long id;
     @NotEmpty
+
     private String firstName;
     @NotEmpty
+
     private String lastName;
+
+    private int day;
+    @NotEmpty
+
+    private int month;
+    @NotEmpty
+
+    private int year;
+    @NotEmpty
+
+    private int sex;
+    @NotEmpty
+
+    private int high;
+    @NotEmpty
+
+    private int weight;
+    @NotEmpty
+
     @NotEmpty(message = "Email should not be empty")
     @Email
     private String email;
+
     @NotEmpty(message = "Password should not be empty")
     private String password;
 }

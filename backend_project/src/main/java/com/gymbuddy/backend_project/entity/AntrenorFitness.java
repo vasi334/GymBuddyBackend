@@ -17,7 +17,7 @@ import java.util.List;
 @Entity
 @Table(name = "antrenori",
         uniqueConstraints = {
-                @UniqueConstraint(name = "antrenor_unique_constraint", columnNames = "contactInformation")
+                @UniqueConstraint(name = "antrenor_unique_constraint", columnNames = "contact_information")
         })
 public class AntrenorFitness {
 
@@ -40,7 +40,7 @@ public class AntrenorFitness {
             columnDefinition = "TEXT")
     private String lastname;
 
-    @Column(name = "contactInformation",
+    @Column(name = "contact_information",
             nullable = false,
             columnDefinition = "TEXT")
     private String contactInformation;
@@ -70,7 +70,11 @@ public class AntrenorFitness {
     care este TimeStamp(inglobeaza si data si ora)
      */
     @Temporal(TemporalType.TIMESTAMP)
+    /*
+    Aici, prin aceasta adnotare specificam NUMELE COLOANEI IN TABELA ASOCIATA unde vom
+    stoca aceste valori ale field-ului program! Fiecare element al listei va fi salvat intr-o
+    inregistrare a tabelei separate, legate de instanta antrenor dorita printr-un foreign key
+     */
     @Column(name = "program")
     private List<Date> program;
-
 }

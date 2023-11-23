@@ -1,12 +1,11 @@
 package com.gymbuddy.backend_project.service;
 
-import com.gymbuddy.backend_project.dto.Video;
+import com.gymbuddy.backend_project.entity.Video;
 import com.gymbuddy.backend_project.repository.VideoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 
 @Service
 public class VideoService {
@@ -32,4 +31,13 @@ public class VideoService {
     public void deleteVideo(Long id) {
         videoRepository.deleteById(id);
     }
+
+    public List<Video> getVideosByDuration(int duration) {
+        return videoRepository.findByDurationMinutes(duration);
+    }
+
+    public List<Video> getVideosByIntensity(String intensity) {
+        return videoRepository.findByIntensity(intensity);
+    }
 }
+

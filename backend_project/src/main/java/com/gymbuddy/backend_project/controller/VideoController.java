@@ -1,11 +1,10 @@
 package com.gymbuddy.backend_project.controller;
-
-import com.gymbuddy.backend_project.dto.Video;
+import com.gymbuddy.backend_project.entity.Video;
 import com.gymbuddy.backend_project.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.*;
 
-        import java.util.List;
+import java.util.List;
 
 @RestController
 @RequestMapping("/videos")
@@ -35,5 +34,15 @@ public class VideoController {
     @DeleteMapping("/{id}")
     public void deleteVideo(@PathVariable Long id) {
         videoService.deleteVideo(id);
+    }
+
+    @GetMapping("/duration/{duration}")
+    public List<Video> getVideosByDuration(@PathVariable int duration) {
+        return videoService.getVideosByDuration(duration);
+    }
+
+    @GetMapping("/intensity/{intensity}")
+    public List<Video> getVideosByIntensity(@PathVariable String intensity) {
+        return videoService.getVideosByIntensity(intensity);
     }
 }

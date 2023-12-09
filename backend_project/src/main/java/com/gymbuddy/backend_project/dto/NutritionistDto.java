@@ -1,6 +1,9 @@
 package com.gymbuddy.backend_project.dto;
+<<<<<<< HEAD
 
 import com.gymbuddy.backend_project.entity.Nutritionist;
+=======
+>>>>>>> origin
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,8 +25,13 @@ public class NutritionistDto {
     private String email;
 
     private String site;
+<<<<<<< HEAD
     public Nutritionist getNutritionist()
     {
         return new Nutritionist(id, nume,specializare,nr_telefon,email,site);
     }
 }
+=======
+
+}
+>>>>>>> origin

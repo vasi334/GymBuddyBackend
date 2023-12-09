@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="189c4691-e472-4136-a569-fcd51f9effcf" name="Changes" comment="Crearea propriului branch">
+    <list default="true" id="189c4691-e472-4136-a569-fcd51f9effcf" name="Changes" comment="Implementare DTOs pentru modelele din baza de date">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a6b25dd5-56c0-49a4-bc85-cc82a99ac25e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a6b25dd5-56c0-49a4-bc85-cc82a99ac25e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/BackendProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/BackendProjectApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend_project/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend_project/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/config/SpringSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/config/SpringSecurity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/controller/NutritionistiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/controller/NutritionistiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/dto/NutritionistDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/dto/NutritionistDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/entity/AntrenorFitness.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/entity/AntrenorFitness.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +121,10 @@
       <workItem from="1700133725887" duration="52000" />
       <workItem from="1700148272045" duration="2482000" />
       <workItem from="1700156517633" duration="25000" />
-      <workItem from="1700735478030" duration="6900000" />
+      <workItem from="1700735478030" duration="7785000" />
+      <workItem from="1700760470854" duration="49000" />
+      <workItem from="1700760541852" duration="38000" />
+      <workItem from="1702113740934" duration="2834000" />
     </task>
     <task id="LOCAL-00001" summary="Crearea propriului branch">
       <created>1700040573144</created>
@@ -125,7 +133,21 @@
       <option name="project" value="LOCAL" />
       <updated>1700040573144</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Implementare DTOs pentru modelele din baza de date">
+      <created>1700742435079</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700742435079</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Implementare DTOs pentru modelele din baza de date">
+      <created>1700742539851</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700742539851</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,7 +166,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Crearea propriului branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Crearea propriului branch" />
+    <MESSAGE value="Implementare DTOs pentru modelele din baza de date" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementare DTOs pentru modelele din baza de date" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

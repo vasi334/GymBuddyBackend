@@ -8,7 +8,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class NutritionistDto {
+public class NutritionistDto
+{
     private Long id;
 
     private String nume;

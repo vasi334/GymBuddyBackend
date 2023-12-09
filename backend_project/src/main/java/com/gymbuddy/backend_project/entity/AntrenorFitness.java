@@ -16,7 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "antrenori",
-        uniqueConstraints = {
+        uniqueConstraints =
+                {
                 @UniqueConstraint(name = "antrenor_unique_constraint", columnNames = "contact_information")
         })
 public class AntrenorFitness {

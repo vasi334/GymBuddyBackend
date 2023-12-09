@@ -1,14 +1,18 @@
 package com.gymbuddy.backend_project.controller;
+
 import com.gymbuddy.backend_project.entity.Video;
 import com.gymbuddy.backend_project.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/videos")
 public class VideoController {
+
     private final VideoService videoService;
 
     @Autowired
@@ -17,32 +21,49 @@ public class VideoController {
     }
 
     @GetMapping
-    public List<Video> getAllVideos() {
-        return videoService.getAllVideos();
+    public String getAllVideos(Model model) {
+        List<Video> videos = videoService.getAllVideos();
+        model.addAttribute("videos", videos);
+        return "videos";
     }
 
     @GetMapping("/{id}")
-    public Video getVideoById(@PathVariable Long id) {
-        return videoService.getVideoById(id);
+    public String getVideoById(@PathVariable Long id, Model model) {
+        Video video = videoService.getVideoById(id);
+        model.addAttribute("video", video);
+        return "video";
     }
 
     @PostMapping
-    public Video createVideo(@RequestBody Video video) {
-        return videoService.createVideo(video);
+    public String createVideo(@ModelAttribute Video video) {
+        videoService.createVideo(video);
+        return "redirect:/videos";
     }
 
     @DeleteMapping("/{id}")
-    public void deleteVideo(@PathVariable Long id) {
+    public String deleteVideo(@PathVariable Long id) {
         videoService.deleteVideo(id);
+        return "redirect:/videos";
     }
 
     @GetMapping("/duration/{duration}")
-    public List<Video> getVideosByDuration(@PathVariable int duration) {
-        return videoService.getVideosByDuration(duration);
+    public String getVideosByDuration(@PathVariable int duration, Model model) {
+        List<Video> videos = videoService.getVideosByDuration(duration);
+        model.addAttribute("videos", videos);
+        return "videos";
     }
 
     @GetMapping("/intensity/{intensity}")
-    public List<Video> getVideosByIntensity(@PathVariable String intensity) {
-        return videoService.getVideosByIntensity(intensity);
+    public String getVideosByIntensity(@PathVariable String intensity, Model model) {
+        List<Video> videos = videoService.getVideosByIntensity(intensity);
+        model.addAttribute("videos", videos);
+        return "videos";
+    }
+
+    @GetMapping("/display")
+    public String displayVideosPage(Model model) {
+        List<Video> videos = videoService.getAllVideos();
+        model.addAttribute("videos", videos);
+        return "videos";
     }
 }

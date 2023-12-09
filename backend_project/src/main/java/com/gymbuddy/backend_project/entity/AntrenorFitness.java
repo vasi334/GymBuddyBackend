@@ -38,7 +38,7 @@ public class AntrenorFitness {
     @Column(name = "lastname",
             nullable = false,
             columnDefinition = "TEXT")
-    private String lastname;
+    private String lastName;
 
     @Column(name = "contact_information",
             nullable = false,

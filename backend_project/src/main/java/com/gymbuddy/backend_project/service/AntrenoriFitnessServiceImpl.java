@@ -50,7 +50,7 @@ public class AntrenoriFitnessServiceImpl implements AntrenoriFitnessService {
          */
         AntrenorFitness antrenorToBeSaved = AntrenorFitness.builder().
                 id(antrenorFitness.getId()).
-                lastname(antrenorFitness.getLastName()).
+                lastName(antrenorFitness.getLastName()).
                 firstName(antrenorFitness.getFirstName()).
                 contactInformation(antrenorFitness.getContactInformation())
                 .build();
@@ -74,7 +74,7 @@ public class AntrenoriFitnessServiceImpl implements AntrenoriFitnessService {
     private AntrenorFitnessDTO mapToDTO(AntrenorFitness antrenorFitness){
         AntrenorFitnessDTO antrenorFitnessDTO = AntrenorFitnessDTO.builder().
                 id(antrenorFitness.getId()).
-                lastName(antrenorFitness.getLastname()).
+                lastName(antrenorFitness.getLastName()).
                 firstName(antrenorFitness.getFirstName()).
                 contactInformation(antrenorFitness.getContactInformation()).build();
         return antrenorFitnessDTO;

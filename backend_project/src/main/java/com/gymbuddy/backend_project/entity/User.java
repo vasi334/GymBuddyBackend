@@ -1,6 +1,5 @@
 package com.gymbuddy.backend_project.entity;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

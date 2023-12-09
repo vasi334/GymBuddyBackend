@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name="nutritionisti")
-public class Nutritionisti {
+public class Nutritionist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 

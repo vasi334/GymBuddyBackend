@@ -1,14 +1,14 @@
 package com.gymbuddy.backend_project.service;
 
 import com.gymbuddy.backend_project.dto.NutritionistDto;
-import com.gymbuddy.backend_project.entity.Nutritionisti;
+import com.gymbuddy.backend_project.entity.Nutritionist;
 import com.gymbuddy.backend_project.repository.NutritionistRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 @Service
-public class NutritionistServiceImpl implements NutritionistiService {
+public class NutritionistServiceImpl implements NutritionistService {
     private NutritionistRepository nutritionistRepository;
 
     public NutritionistServiceImpl(NutritionistRepository nutritionistRepository) {
@@ -21,15 +21,15 @@ public class NutritionistServiceImpl implements NutritionistiService {
     }
 
     @Override
-    public Nutritionisti findNutritionistByEmail(String email) {
+    public Nutritionist findNutritionistByEmail(String email) {
         return nutritionistRepository.findByEmail(email);
     }
 
     @Override
-    public List<Nutritionisti> findAllNutritionisti() {
-        List<Nutritionisti> nutritionisti=nutritionistRepository.findAll();
-        List<Nutritionisti> nutritionistiDto=new ArrayList<>();
-        for (Nutritionisti i :nutritionisti)
+    public List<Nutritionist> findAllNutritionisti() {
+        List<Nutritionist> nutritionisti=nutritionistRepository.findAll();
+        List<Nutritionist> nutritionistiDto=new ArrayList<>();
+        for (Nutritionist i :nutritionisti)
              nutritionistiDto.add(i);
         return nutritionistiDto;
 

@@ -1,5 +1,7 @@
 package com.gymbuddy.backend_project.dto;
 
+import com.gymbuddy.backend_project.entity.Nutritionist;
+import com.gymbuddy.backend_project.entity.SalaFitness;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,4 +24,9 @@ public class SaliDto
 
     @NotEmpty(message = "Web adress should not be empty!")
     private String webAdress;
+
+    public SalaFitness getSala()
+    {
+        return new SalaFitness(id,Name,adress,webAdress);
+    }
 }

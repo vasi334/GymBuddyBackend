@@ -4,6 +4,7 @@ import com.gymbuddy.backend_project.entity.Video;
 import com.gymbuddy.backend_project.repository.VideoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
+    @Transactional
     public Video createVideo(Video video) {
         return videoRepository.save(video);
     }

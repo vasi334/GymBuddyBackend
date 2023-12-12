@@ -28,12 +28,14 @@ public class SpringSecurity {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests((authorize) ->
-                        authorize.requestMatchers("/register/**").permitAll()
+                        authorize.requestMatchers("/videos/add_video").permitAll()
+                                .requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/index").permitAll()
-                               .requestMatchers("/users").hasRole("ADMIN")
+                                .requestMatchers("/users").hasRole("ADMIN")
                                 .requestMatchers("/nutritionisti").permitAll()
                                 .requestMatchers("/adaugare_nutritionist").permitAll()
                                 .requestMatchers("/videos").permitAll()
+                                .requestMatchers("/antrenori").permitAll()
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")

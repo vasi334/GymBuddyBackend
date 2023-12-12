@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GymBuddy - Adaugă Videoclip</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">GymBuddy</a>
+  </div>
+</nav>
+<div class="container mt-5">
+  <h2>Adaugă un videoclip</h2>
+  <form id="addVideoForm">
+    <div class="mb-3">
+      <label for="title" class="form-label">Titlu</label>
+      <input type="text" class="form-control" id="title" required>
+    </div>
+    <div class="mb-3">
+      <label for="url" class="form-label">URL</label>
+      <input type="text" class="form-control" id="url" required>
+    </div>
+    <div class="mb-3">
+      <label for="duration" class="form-label">Durată (minute)</label>
+      <input type="number" class="form-control" id="duration" required>
+    </div>
+    <div class="mb-3">
+      <label for="intensity" class="form-label">Intensitate</label>
+      <input type="text" class="form-control" id="intensity" required>
+    </div>
+    <button type="button" class="btn btn-primary" onclick="saveVideo()">Salvează</button>
+  </form>
+</div>
+<script>
+  function saveVideo() {
+    var title = document.getElementById('title').value;
+    var url = document.getElementById('url').value;
+    var duration = document.getElementById('duration').value;
+    var intensity = document.getElementById('intensity').value;
+
+    var data = {
+      title: title,
+      url: url,
+      durationMinutes: duration,
+      intensity: intensity
+    };
+
+    fetch('/videos/add_video', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(response => {
+      if (response.ok) {
+        alert('Videoclip salvat cu succes!');
+        document.getElementById('addVideoForm').reset();
+      } else {
+        alert('Eroare la salvarea videoclipului.');
+      }
+    }).catch(error => {
+      console.error('Eroare:', error);
+      alert('Eroare la comunicarea cu serverul.');
+    });
+  }
+</script>
+</body>
+</html>

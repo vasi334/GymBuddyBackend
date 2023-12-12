@@ -1,5 +1,6 @@
 package com.gymbuddy.backend_project.dto;
 
+
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,8 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AntrenorFitnessDTO
-{
+public class AntrenorFitnessDTO {
 
     private Long id;
 

@@ -44,7 +44,7 @@
     <tr th:each = "video : ${videos}">
       <td th:text = "${video.id}"></td>
       <td th:text = "${video.title}"></td>
-      <td> th:text = "${video.url}"></td>
+      <td><a th:href="@{${video.url}}" target="_blank" th:text="website">Visit Website</a></td>
       <td th:text = "${video.durationMinutes}"></td>
       <td th:text = "${video.intensity}"></td>
     </tr>

@@ -28,6 +28,7 @@ public class SpringSecurity {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests((authorize) ->
+
                         authorize.requestMatchers("/videos/add_video").permitAll()
                                 .requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/index").permitAll()
@@ -35,6 +36,7 @@ public class SpringSecurity {
                                 .requestMatchers("/nutritionisti").permitAll()
                                 .requestMatchers("/adaugare_nutritionist").permitAll()
                                 .requestMatchers("/videos").permitAll()
+                                .requestMatchers("/sali").permitAll()
                                 .requestMatchers("/antrenori").permitAll()
                 ).formLogin(
                         form -> form

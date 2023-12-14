@@ -26,7 +26,7 @@ public class NutritionisController {
         model.addAttribute("nutritionisti", listaNutritionisti);
         return "nutritionisti";
     }
-    @GetMapping("/adauga_nutritionist")
+    @GetMapping("/adaugare_nutritionist")
     public String showRegistrationForm(Model model){
         // create model object to store form data
         NutritionistDto nutritionist = new NutritionistDto();

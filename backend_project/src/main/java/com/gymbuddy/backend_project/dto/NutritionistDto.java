@@ -23,6 +23,7 @@ public class NutritionistDto {
 
     private String site;
 
+
     public Nutritionist getNutritionist()
     {
         return new Nutritionist(id, nume,specializare,nr_telefon,email,site);

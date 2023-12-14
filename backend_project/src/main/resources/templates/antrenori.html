@@ -44,7 +44,7 @@
     <tr th:each = "antrenor : ${antrenori}">
       <td th:text = "${antrenor.firstName}"></td>
       <td th:text = "${antrenor.lastName}"></td>
-      <td th:text = "${antrenor.contactInformation}"></td>
+      <td><a th:href="@{${antrenor.contactInformation}}" target="_blank" th:text="${antrenor.contactInformation}">Visit Website</a></td>
 <!--      <td th:text = "${antrenor.program}"></td>-->
     </tr>
     </tbody>

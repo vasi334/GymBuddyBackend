@@ -36,6 +36,7 @@ public class SpringSecurity {
                                 .requestMatchers("/adaugare_nutritionist").permitAll()
                                 .requestMatchers("/videos").permitAll()
                                 .requestMatchers("/videos/{id}").permitAll()
+                                .requestMatchers("/antrenori").permitAll()
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")

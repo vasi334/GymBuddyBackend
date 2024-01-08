@@ -33,14 +33,19 @@ public class VideoController {
     public String getVideoById(@PathVariable Long id, Model model) {
         Video video = videoService.getVideoById(id);
         model.addAttribute("video", video);
-        return "video";
+        return "single_video";
     }
 
     @DeleteMapping("/{id}")
-    public String deleteVideo(@PathVariable Long id) {
-        videoService.deleteVideo(id);
-        return "redirect:/videos";
+    public ResponseEntity<String> deleteVideo(@PathVariable Long id) {
+        try {
+            videoService.deleteVideo(id);
+            return new ResponseEntity<>("Videoclip șters cu succes!", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Eroare la ștergerea videoclipului.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
+
 
     @GetMapping("/duration/{duration}")
     public String getVideosByDuration(@PathVariable int duration, Model model) {

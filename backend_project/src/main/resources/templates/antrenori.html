@@ -36,6 +36,7 @@
       <th>FirstName</th>
       <th>LastName</th>
       <th>ContactInformation</th>
+      <th>Stergere Antrenor</th>
 <!--      In AntrenorFitnessDTO, NU AVEM FIELD-UL PROGRAM!!!-->
 <!--      <th>Program</th>-->
     </tr>
@@ -45,11 +46,37 @@
       <td th:text = "${antrenor.firstName}"></td>
       <td th:text = "${antrenor.lastName}"></td>
       <td><a th:href="@{${antrenor.contactInformation}}" target="_blank" th:text="${antrenor.contactInformation}">Visit Website</a></td>
-
+      <td>
+        <button th:attr="onclick='confirmDelete(\'' + ${antrenor.id} + '\')'">Delete</button>
+      </td>
       <!--      <td th:text = "${antrenor.program}"></td>-->
     </tr>
     </tbody>
   </table>
+  <script>
+    function confirmDelete(antrenorId) {
+      console.log("se apeleaza");
+      let confirmDelete = confirm("Sunteți sigur că doriți să ștergeți acest antrenor?");
+      if (confirmDelete) {
+        console.log("trying fetch " + antrenorId)
+        fetch('/antrenori/' + antrenorId, {
+          method: 'DELETE',
+        })
+                .then(response => {
+                  if (response.ok) {
+                    alert('Antrenorul a fost șters cu succes!');
+                    location.reload();
+                  } else {
+                    alert('Eroare la ștergerea antrenorului.');
+                  }
+                })
+                .catch(error => {
+                  console.error('Eroare:', error);
+                  alert('Eroare la comunicarea cu serverul.');
+                });
+      }
+    }
+  </script>
 </div>
 </body>
 </html>

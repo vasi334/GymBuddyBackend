@@ -25,4 +25,10 @@ public interface AntrenoriFitnessService {
      * @return Gaseste toti antrenorii de fitness
      */
     List<AntrenorFitnessDTO> findAllAntrenoriFitness();
+
+    /**
+     * Metoda sterge un atrenor de un anumit ID
+     * @param id - Id ul antrenorului de sters
+     */
+    void deleteAntrenor(Long id);
 }

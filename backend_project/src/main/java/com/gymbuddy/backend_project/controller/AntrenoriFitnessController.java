@@ -62,4 +62,15 @@ public class AntrenoriFitnessController {
             return new ResponseEntity<>("Eroare la salvarea antrenorului.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @DeleteMapping("/antrenori/{id}")
+    public ResponseEntity<String> deleteAntrenor(@PathVariable Long id){
+        try{
+            antrenoriFitnessService.deleteAntrenor(id);
+            return new ResponseEntity<>("Antrenor sters cu succes!", HttpStatus.OK);
+        }
+        catch (Exception ex){
+            return new ResponseEntity<>("Eroare la stergerea antrenorului.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

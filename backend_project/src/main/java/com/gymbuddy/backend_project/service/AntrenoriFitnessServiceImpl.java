@@ -63,6 +63,20 @@ public class AntrenoriFitnessServiceImpl implements AntrenoriFitnessService {
     }
 
     /**
+     * Verificam daca exista antrenor ul de ID dorit ce terbuie sa
+     * il stergem SI il stergem; In caz contrar, aruncam o exceptie
+     * @param id - Id ul antrenorului de sters
+     */
+    @Override
+    public void deleteAntrenor(Long id){
+          boolean exists = antrenoriFitnessRepository.existsById(id);
+          if(! exists){
+              throw new IllegalStateException("Antrenorul cu id " + id +  " nu exista!");
+          }
+          antrenoriFitnessRepository.deleteById(id);
+    }
+
+    /**
      * @param antrenorFitness-AntrenorFitness
      * @return Obiectul DTO asociat(doar informatiile necesare ale unui antrenor
      * de fitness de care avem nevoie), folosinf prototipul Builder!!!("inlantuire constructii")

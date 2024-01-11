@@ -16,7 +16,7 @@ public interface AntrenoriFitnessService {
 
     /**
      *
-     * @param contact-String
+     * @param contact-Informatiile de contact ale Antrenorului ce dorim sa il gasim
      * @return Antrenorul de fitness ce are informatiile de contact dorite
      */
     Optional<AntrenorFitness> findAntrenorByContactInformation(String contact);

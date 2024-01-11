@@ -5,6 +5,7 @@ import com.gymbuddy.backend_project.entity.AntrenorFitness;
 import com.gymbuddy.backend_project.repository.AntrenoriFitnessRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,7 +39,8 @@ public class AntrenoriFitnessServiceImpl implements AntrenoriFitnessService {
      * @param antrenorFitness-AntrenoriFitnessDTO
      */
     @Override
-    public void save(AntrenorFitnessDTO antrenorFitness) {
+    @Transactional
+    public AntrenorFitness save(AntrenorFitness antrenorFitness) {
         Optional<AntrenorFitness> existentAntrenor =
                 antrenoriFitnessRepository.findByEmail(antrenorFitness.getContactInformation());
         /*exista deja un antrenor cu astfel de informatii de contact*/
@@ -48,13 +50,7 @@ public class AntrenoriFitnessServiceImpl implements AntrenoriFitnessService {
         Avem nevoie de un obiect de tipul AntrenorFitness, ce il instantiem doar cu detaliile, informatiile necesare,
         specificate in instanta AntrenorFitnessDTO
          */
-        AntrenorFitness antrenorToBeSaved = AntrenorFitness.builder().
-                id(antrenorFitness.getId()).
-                lastName(antrenorFitness.getLastName()).
-                firstName(antrenorFitness.getFirstName()).
-                contactInformation(antrenorFitness.getContactInformation())
-                .build();
-        antrenoriFitnessRepository.save(antrenorToBeSaved);
+        return antrenoriFitnessRepository.save(antrenorFitness);
     }
 
     /**

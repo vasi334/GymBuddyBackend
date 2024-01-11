@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +34,21 @@ public class User
 
     @Column(nullable=false)
     private String password;
+
+    @Column(nullable=false)
+    private String goal;
+
+    @Column(nullable=false)
+    private String height;
+
+    @Column(nullable=false)
+    private String weight;
+
+    @Column(nullable=false)
+    private String city;
+
+    @Column(nullable = false, columnDefinition = "TIMESTAMP")
+    private LocalDate dateOfBirth;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(

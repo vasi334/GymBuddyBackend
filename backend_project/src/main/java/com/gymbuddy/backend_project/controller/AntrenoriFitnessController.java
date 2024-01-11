@@ -1,14 +1,16 @@
 package com.gymbuddy.backend_project.controller;
 
 import com.gymbuddy.backend_project.dto.AntrenorFitnessDTO;
+import com.gymbuddy.backend_project.dto.NutritionistDto;
+import com.gymbuddy.backend_project.entity.AntrenorFitness;
+import com.gymbuddy.backend_project.entity.Video;
 import com.gymbuddy.backend_project.service.AntrenoriFitnessService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,16 +40,26 @@ public class AntrenoriFitnessController {
     public String findAllAntrenoriFitness(Model model) {
         List<AntrenorFitnessDTO> listaAntrenori = antrenoriFitnessService.findAllAntrenoriFitness();
         model.addAttribute("antrenori", listaAntrenori);
-        return "antrenori"; // This should be the name of your Thymeleaf template (antrenori.html)
+        return "antrenori";
     }
+    @GetMapping("/antrenori/adauga_antrenor")
+    public String showAddAntrenorPage(){
+        return "add_antrenor";
+    }
+    @PostMapping("/antrenori/adauga_antrenor")
+    public ResponseEntity<String> createAntrenor(@RequestBody AntrenorFitness antrenorRequest) {
+        try {
+            AntrenorFitness antrenorFitnessToBeSaved = new AntrenorFitness();
+            antrenorFitnessToBeSaved.setFirstName(antrenorRequest.getFirstName());
+            antrenorFitnessToBeSaved.setLastName(antrenorRequest.getLastName());
+            antrenorFitnessToBeSaved.setContactInformation(antrenorRequest.getContactInformation());
 
+            antrenoriFitnessService.save(antrenorFitnessToBeSaved);
 
-    /**
-     * Salvam informatiile unui antrenor(Daca putem)
-     * @param antrenorFitnessDTO-AntrenorFitnessDTO
-     */
-    @PostMapping
-    public void addNewAntrenor(@RequestBody AntrenorFitnessDTO antrenorFitnessDTO){
-        this.antrenoriFitnessService.save(antrenorFitnessDTO);
+            return new ResponseEntity<>("Antrenor salvat cu succes! "
+                    , HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Eroare la salvarea antrenorului.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

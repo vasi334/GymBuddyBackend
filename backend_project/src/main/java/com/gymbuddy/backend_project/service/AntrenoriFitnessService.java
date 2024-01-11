@@ -10,9 +10,9 @@ public interface AntrenoriFitnessService {
 
     /**
      * Antrenorul ce il dorim sa il salvam
-     * @param antrenoriFitness-AntrenoriFitnessDTO
+     * @param antrenoriFitness-AntrenorFitness
      */
-    void save(AntrenorFitnessDTO antrenoriFitness);
+    AntrenorFitness save(AntrenorFitness antrenoriFitness);
 
     /**
      *

@@ -38,6 +38,7 @@ public class SpringSecurity {
                                 .requestMatchers("/sali").permitAll()
                                 .requestMatchers("/videos/{id}").permitAll()
                                 .requestMatchers("/antrenori").permitAll()
+                                .requestMatchers("/antrenori/{id}").permitAll()
                                 .requestMatchers("/antrenori/adauga_antrenor").permitAll()
                 ).formLogin(
                         form -> form

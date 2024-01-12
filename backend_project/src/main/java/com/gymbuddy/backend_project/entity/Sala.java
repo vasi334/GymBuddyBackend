@@ -1,6 +1,6 @@
 package com.gymbuddy.backend_project.entity;
 
-import com.gymbuddy.backend_project.dto.SaliDto;
+import com.gymbuddy.backend_project.dto.SalaDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,18 +13,19 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name="sali")
-public class SalaFitness {
+public class Sala {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     @Column(nullable=false)
-    private String Name;
+    private String nume;
     @Column(nullable=false)
-    private String adress;
+    private String adresa;
     @Column(nullable=false)
-    private String webAdress;
-    SaliDto modificareSali()
+    private String web_adresa;
+    SalaDto modificareSala()
     {
-        return new SaliDto(id,Name,adress,webAdress);
+        return new SalaDto(id, nume,adresa,web_adresa);
     }
 }

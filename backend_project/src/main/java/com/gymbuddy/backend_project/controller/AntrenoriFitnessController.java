@@ -33,7 +33,7 @@ public class AntrenoriFitnessController {
     }
 
     /**
-     * @return Multimea de informatii doritre(DTO) ale antrenorilor existenti, prezentati la pagia dorita
+     * @return Multimea de informatii dorite(DTO) ale antrenorilor existenti, prezentati la pagina dorita
      * Numele, prenumele, informatii de contact, ETC
      */
     @GetMapping("/antrenori")
@@ -46,6 +46,14 @@ public class AntrenoriFitnessController {
     public String showAddAntrenorPage(){
         return "add_antrenor";
     }
+
+    /**
+     *
+     * @param antrenorRequest - Antrenorul ce dorim să îl adaugam
+     * @return Raspunsul vizavi de adaugarea cu succes a antrenorului
+     * sau esuarea adaugarii acestuia(fie informatiile de contact ce le-a
+     * prezentat sunt deja preluate de catre un alt antrenor, fie etc)
+     */
     @PostMapping("/antrenori/adauga_antrenor")
     public ResponseEntity<String> createAntrenor(@RequestBody AntrenorFitness antrenorRequest) {
         try {
@@ -63,6 +71,13 @@ public class AntrenoriFitnessController {
         }
     }
 
+    /**
+     *
+     * @param id - Id-ul antrenorului ce dorim sa il stergem
+     * @return Raspsunul vizavi de stergerea cu succes a antrenorului(A existat
+     * un antrenor de Id dorit) sau absenta antrenorului de Id dorit ce dorim
+     * sa il stergem
+     */
     @DeleteMapping("/antrenori/{id}")
     public ResponseEntity<String> deleteAntrenor(@PathVariable Long id){
         try{

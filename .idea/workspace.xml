@@ -4,172 +4,58 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="189c4691-e472-4136-a569-fcd51f9effcf" name="Changes" comment="">
+    <list default="true" id="0935e29f-6c39-4889-8803-35f3e114261d" name="Changes" comment="Implementare DTOs pentru modelele din baza de date">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/24a2396f-116c-4f38-8734-3e71accf84dc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/24a2396f-116c-4f38-8734-3e71accf84dc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
-    <list default="true" id="189c4691-e472-4136-a569-fcd51f9effcf" name="Changes" comment="Crearea propriului branch">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/BackendProjectApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/BackendProjectApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend_project/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend_project/src/main/resources/application.properties" afterDir="false" />
->>>>>>> origin
+      <change beforePath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend_project/src/main/java/com/gymbuddy/backend_project/entity/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="HTML File" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectId" id="2Y2ffma7C7GiCo2lBuKv86TotrL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Ioana/GymBuddyBackend/backend_project",
-    "mysql-explain.agentPath": "C:\\Users\\Ioana\\AppData\\Roaming\\JetBrains\\IntelliJIdea2022.2\\plugins\\mysql-explain-intellij-plugin\\lib\\mysql-explain-agent-1.1.0-jar-with-dependencies.jar",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pathVariables",
-    "spring.configuration.checksum": "997a276574e837535dd1e3ea877de5c1"
-=======
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/MATERIALE FACULTA SEM 5/Proiect colectiv/GymBuddyBackend&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pathVariables&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;997a276574e837535dd1e3ea877de5c1&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
-    ]
->>>>>>> origin
+    "RequestMappingsPanelWidth1": "75"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="BackendProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="BackendProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="ACTIVE_PROFILES" />
       <envs>
-        <env name="password_db" value="password" />
-        <env name="username_db" value="root" />
         <env name="db_host" value="localhost" />
-        <env name="db_port" value="3306" />
         <env name="db_name" value="gym" />
+        <env name="db_port" value="3306" />
+        <env name="password_db" value="diana" />
+        <env name="username_db" value="root" />
       </envs>
       <module name="backend_project" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.gymbuddy.backend_project.BackendProjectApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gymbuddy.backend_project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.BackendProjectApplication" />
+      </list>
+    </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="189c4691-e472-4136-a569-fcd51f9effcf" name="Changes" comment="" />
-      <created>1699728707971</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1699728707971</updated>
-      <workItem from="1699728707971" duration="4310000" />
-      <workItem from="1699781236017" duration="6116000" />
-<<<<<<< HEAD
-      <workItem from="1700408601620" duration="5000" />
-      <workItem from="1700408637680" duration="138000" />
-=======
-      <workItem from="1700037268650" duration="9473000" />
-      <workItem from="1700071992877" duration="8217000" />
-      <workItem from="1700133725887" duration="52000" />
-      <workItem from="1700148272045" duration="2482000" />
-      <workItem from="1700156517633" duration="25000" />
-      <workItem from="1700735478030" duration="6900000" />
->>>>>>> origin
-    </task>
-    <task id="LOCAL-00001" summary="Crearea propriului branch">
-      <created>1700040573144</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1700040573144</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Crearea propriului branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Crearea propriului branch" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.sql.SQLException" package="java.sql" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

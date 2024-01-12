@@ -8,7 +8,7 @@ import java.util.List;
 public interface SaliService {
     void saveSali(SaliDto salaFitness);
 
-    SalaFitness findSalaFitnessByWebAdress(String webAdress);
+    SalaFitness findSalaFitnessByAdresa(String adresa);
 
     List<SalaFitness> findAllSali();
 }

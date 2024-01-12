@@ -23,8 +23,8 @@ public class SaliServiceImpl implements SaliService{
     }
 
     @Override
-    public SalaFitness findSalaFitnessByWebAdress(String webAdress) {
-        return saliRepository.findByWebAdress(webAdress);
+    public SalaFitness findSalaFitnessByAdresa(String adresa) {
+        return saliRepository.findByAdresa(adresa);
     }
 
     @Override

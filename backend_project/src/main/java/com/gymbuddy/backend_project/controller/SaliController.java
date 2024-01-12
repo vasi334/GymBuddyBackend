@@ -1,8 +1,5 @@
 package com.gymbuddy.backend_project.controller;
-
-import com.gymbuddy.backend_project.dto.NutritionistDto;
 import com.gymbuddy.backend_project.dto.SaliDto;
-import com.gymbuddy.backend_project.entity.Nutritionist;
 import com.gymbuddy.backend_project.entity.SalaFitness;
 import com.gymbuddy.backend_project.service.SaliService;
 import org.springframework.ui.Model;
@@ -22,7 +19,7 @@ public class SaliController {
     }
 
     @GetMapping("/sali")
-    String getAllNutritionisti(Model model)
+    String getAllSali(Model model)
     {
         List<SalaFitness> listaSali=saliService.findAllSali();
         model.addAttribute("sali", listaSali);

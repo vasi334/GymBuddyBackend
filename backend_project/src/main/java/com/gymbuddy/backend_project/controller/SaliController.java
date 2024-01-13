@@ -1,37 +1,69 @@
 package com.gymbuddy.backend_project.controller;
-import com.gymbuddy.backend_project.dto.SaliDto;
+
+import com.gymbuddy.backend_project.entity.AntrenorFitness;
 import com.gymbuddy.backend_project.entity.SalaFitness;
 import com.gymbuddy.backend_project.service.SaliService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping
+@Controller
+@RequestMapping("/sali")
 public class SaliController {
+
     private final SaliService saliService;
 
-    public SaliController(SaliService saliService){
+    @Autowired
+    public SaliController(SaliService saliService) {
         this.saliService = saliService;
     }
 
-    @GetMapping("/sali")
-    String getAllSali(Model model)
-    {
-        List<SalaFitness> listaSali=saliService.findAllSali();
-        model.addAttribute("sali", listaSali);
-        return "sali";
-    }
-
-    @GetMapping("/adauga_sala")
-    public String showRegistrationForm(Model model){
-        // create model object to store form data
-        SaliDto sali = new SaliDto();
+    @GetMapping
+    public String getAllSali(Model model) {
+        List<SalaFitness> sali = saliService.getAllSali();
         model.addAttribute("sali", sali);
-        return "adaugare_sala";
+        return "sali_fitness";
     }
 
+    @GetMapping("/sali/adauga_sali")
+    public String showAddSalaPage(){
+        return "add_sali_fitness";
+    }
+
+    @GetMapping("/{id}")
+    public String getSalaById(@PathVariable Long id, Model model) {
+        SalaFitness sala = saliService.getSalaById(id);
+        model.addAttribute("sala", sala);
+        return "detalii_sala";
+    }
+
+    @PostMapping
+    public String createSala(@ModelAttribute SalaFitness sala) {
+        saliService.createSala(sala);
+        return "redirect:/sali";
+    }
+
+    @PutMapping("/{id}")
+    public String updateSala(@PathVariable Long id, @ModelAttribute SalaFitness updatedSala) {
+        saliService.updateSala(id, updatedSala);
+        return "redirect:/sali";
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteSala(@PathVariable Long id) {
+        saliService.deleteSala(id);
+        return "redirect:/sali";
+    }
+
+    @GetMapping("/search")
+    public String getSaliByNume(@RequestParam String nume, Model model) {
+        List<SalaFitness> sali = saliService.getSaliByNume(nume);
+        model.addAttribute("sali", sali);
+        return "sali_fitness";
+    }
 }

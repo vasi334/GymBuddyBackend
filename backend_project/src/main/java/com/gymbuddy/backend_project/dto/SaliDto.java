@@ -25,8 +25,4 @@ public class SaliDto
     @NotEmpty(message = "Web adress should not be empty!")
     private String web_adresa;
 
-    public SalaFitness getSala()
-    {
-        return new SalaFitness(id,nume,adresa,web_adresa);
-    }
 }

@@ -1,15 +1,20 @@
 package com.gymbuddy.backend_project.service;
 
-import com.gymbuddy.backend_project.dto.SaliDto;
 import com.gymbuddy.backend_project.entity.SalaFitness;
 
 import java.util.List;
 
 public interface SaliService {
-    void saveSali(SaliDto salaFitness);
 
-    SalaFitness findSalaFitnessByAdresa(String adresa);
+    List<SalaFitness> getAllSali();
 
-    List<SalaFitness> findAllSali();
+    SalaFitness getSalaById(Long id);
+
+    SalaFitness createSala(SalaFitness sala);
+
+    SalaFitness updateSala(Long id, SalaFitness updatedSala);
+
+    void deleteSala(Long id);
+
+    List<SalaFitness> getSaliByNume(String nume);
 }
-

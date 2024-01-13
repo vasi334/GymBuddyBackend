@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>GymBuddy</title>
@@ -28,23 +26,24 @@
 </nav>
 <div class="container">
     <div class="row col-md-10">
-        <h2>List of Registered Sali</h2>
+        <h2>List of Sali</h2>
     </div>
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
         <tr>
-            <th>Id</th>
+            <th>ID</th>
             <th>Nume</th>
-            <th>Adresa</th>
-            <th>Web_adresa</th>
+            <th>Adresă</th>
+            <th>Adresă web</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each = "sali : ${sali}">
-            <td th:text = "${sali.Id}"></td>
-            <td th:text = "${sali.Nume}"></td>
-            <td th:text = "${sali.Adresa}"></td>
-            <td><a th:href="@{${sali.Web_adresa}}" target="_blank" th:text="website">Visit Website</a></td>
+        <tr th:each="sala : ${sali}">
+            <td th:text="${sala.id}"></td>
+            <td th:text="${sala.nume}"></td>
+            <td th:text="${sala.adresa}"></td>
+            <td th:text="${sala.webAdresa}"></td>
+        </tr>
         </tr>
         </tbody>
     </table>

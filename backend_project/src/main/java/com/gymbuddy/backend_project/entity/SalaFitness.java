@@ -17,14 +17,17 @@ public class SalaFitness {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable=false)
-    private String Name;
+    private String nume;
+
     @Column(nullable=false)
-    private String adress;
+    private String adresa;
+
     @Column(nullable=false)
-    private String webAdress;
-    SaliDto modificareSali()
-    {
-        return new SaliDto(id,Name,adress,webAdress);
+    private String webAdresa;
+
+    public SaliDto modificareSali() {
+        return new SaliDto(id, nume, adresa, webAdresa);
     }
 }

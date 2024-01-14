@@ -36,7 +36,7 @@ public class SpringSecurity {
                                 .requestMatchers("/adaugare_nutritionist").permitAll()
                                 .requestMatchers("/videos").permitAll()
                                 .requestMatchers("/sali").permitAll()
-                                .requestMatchers("/sali/adauga_sali").permitAll()
+                                .requestMatchers("/sali/add_sali_fitness").permitAll()
                                 .requestMatchers("/videos/{id}").permitAll()
                                 .requestMatchers("/antrenori").permitAll()
                                 .requestMatchers("/antrenori/{id}").permitAll()

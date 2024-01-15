@@ -1,6 +1,4 @@
 package com.gymbuddy.backend_project.controller;
-
-import com.gymbuddy.backend_project.entity.AntrenorFitness;
 import com.gymbuddy.backend_project.entity.SalaFitness;
 import com.gymbuddy.backend_project.service.SaliService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,9 +28,23 @@ public class SaliController {
         return "sali_fitness";
     }
 
-    @GetMapping("/sali/adauga_sali")
+    @GetMapping("/add_sali_fitness")
     public String showAddSalaPage(){
         return "add_sali_fitness";
+    }
+
+    @PostMapping("/add_sali_fitness")
+    public ResponseEntity<String> createSalaFitness(@RequestBody SalaFitness salaFitnessRequest){
+        try {
+            SalaFitness salaFitness = new SalaFitness();
+            salaFitness.setNume(salaFitnessRequest.getNume());
+            salaFitness.setAdresa(salaFitnessRequest.getAdresa());
+            salaFitness.setWebAdresa(salaFitnessRequest.getWebAdresa());
+            saliService.createSala(salaFitness);
+            return new ResponseEntity<>("Sala Fitness salvata cu succes!", HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>("Eroare la salvarea salii!",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/{id}")
@@ -55,9 +67,13 @@ public class SaliController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteSala(@PathVariable Long id) {
-        saliService.deleteSala(id);
-        return "redirect:/sali";
+    public ResponseEntity<String> deleteSala(@PathVariable Long id) {
+        try {
+            saliService.deleteSala(id);
+            return new ResponseEntity<>("Sala a fost ștearsa cu succes!", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Eroare la ștergerea sălii.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/search")

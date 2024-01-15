@@ -36,6 +36,8 @@
       <th>FirstName</th>
       <th>LastName</th>
       <th>ContactInformation</th>
+      <th>GymName</th>
+      <th>BestReview</th>
       <th>Stergere Antrenor</th>
 <!--      In AntrenorFitnessDTO, NU AVEM FIELD-UL PROGRAM!!!-->
 <!--      <th>Program</th>-->
@@ -46,6 +48,8 @@
       <td th:text = "${antrenor.firstName}"></td>
       <td th:text = "${antrenor.lastName}"></td>
       <td><a th:href="@{${antrenor.contactInformation}}" target="_blank" th:text="${antrenor.contactInformation}">Visit Website</a></td>
+      <td th:text= "${antrenor.gymInformation}"></td>
+      <td th:text= "${antrenor.bestReview}"></td>
       <td>
         <button th:attr="onclick='confirmDelete(\'' + ${antrenor.id} + '\')'">Delete</button>
       </td>

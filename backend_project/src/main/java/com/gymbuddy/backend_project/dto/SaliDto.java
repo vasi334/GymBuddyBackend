@@ -25,4 +25,5 @@ public class SaliDto
     @NotEmpty(message = "Web adress should not be empty!")
     private String web_adresa;
 
+
 }

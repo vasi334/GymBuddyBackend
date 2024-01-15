@@ -2,6 +2,7 @@ package com.gymbuddy.backend_project.service;
 import com.gymbuddy.backend_project.dto.SalaDto;
 import com.gymbuddy.backend_project.entity.Sala;
 import com.gymbuddy.backend_project.repository.SalaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.List;
 @Service
 public class SalaServiceImpl implements SalaService {
     private SalaRepository salaRepository;
-
+    @Autowired
     public SalaServiceImpl(SalaRepository salaRepository) {
         this.salaRepository = salaRepository;
     }

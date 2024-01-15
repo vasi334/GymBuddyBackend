@@ -20,7 +20,7 @@ public class SpringSecurity {
     private UserDetailsService userDetailsService;
 
     @Bean
-    public static PasswordEncoder passwordEncoder(){
+    public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -32,12 +32,14 @@ public class SpringSecurity {
                         authorize.requestMatchers("/videos/add_video").permitAll()
                                 .requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/index").permitAll()
-                                .requestMatchers("/users").hasRole("ADMIN")
                                 .requestMatchers("/nutritionisti").permitAll()
+                                .requestMatchers("/adaugare_sala").permitAll()
+                                .requestMatchers("/users").hasRole("ADMIN")
                                 .requestMatchers("/adaugare_nutritionist").permitAll()
                                 .requestMatchers("/videos").permitAll()
                                 .requestMatchers("/sali").permitAll()
                                 .requestMatchers("/antrenori").permitAll()
+                                .requestMatchers("/nutritionisti/{id}").permitAll()
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")
@@ -58,4 +60,5 @@ public class SpringSecurity {
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
+
 }

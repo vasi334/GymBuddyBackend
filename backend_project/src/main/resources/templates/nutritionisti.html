@@ -49,6 +49,34 @@
       <td th:text = "${nutritionisti.Nr_telefon}"></td>
       <td th:text = "${nutritionisti.Email}"></td>
       <td><a th:href="@{${nutritionisti.Site}}" target="_blank" th:text="website">Visit Website</a></td>
+      <td>
+        <button th:attr="onclick='confirmDelete(\'' + ${nutritionisti.id} + '\')'">Delete</button>
+      </td>
+      <script>
+        function confirmDelete(videoId) {
+          console.log("se apeleaza");
+          var confirmDelete = confirm("Sunteți sigur că doriți să ștergeți acest nutritionist?");
+          if (confirmDelete) {
+            console.log("trying fetch " + videoId)
+            fetch('/nutritionisti/' + videoId, {
+              method: 'DELETE',
+            })
+                    .then(response => {
+                      if (response.ok) {
+                        alert('Nutritionistul a fost șters cu succes!');
+                        location.reload();
+                      } else {
+                        alert('Eroare la ștergerea nutritionistului.');
+                      }
+                    })
+                    .catch(error => {
+                      console.error('Eroare:', error);
+                      alert('Eroare la comunicarea cu serverul.');
+                    });
+          }
+        }
+
+      </script>
     </tr>
     </tbody>
   </table>

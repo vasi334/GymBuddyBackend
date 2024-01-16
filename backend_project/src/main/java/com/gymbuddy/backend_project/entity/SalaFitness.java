@@ -13,6 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name="sali")
+//Aici definim clasa SalaFitness
 public class SalaFitness {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

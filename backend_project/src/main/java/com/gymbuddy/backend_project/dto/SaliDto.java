@@ -12,6 +12,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+/**
+ * Aceasta clasa are rolul de a extrage DOAR informatiile necesare ce
+ * dorim sa le transmitem/procesam mai departe in request-uri, etc
+ */
 public class SaliDto
 {
     private Long id;

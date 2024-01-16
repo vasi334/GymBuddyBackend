@@ -61,6 +61,8 @@ public class AntrenoriFitnessController {
             antrenorFitnessToBeSaved.setFirstName(antrenorRequest.getFirstName());
             antrenorFitnessToBeSaved.setLastName(antrenorRequest.getLastName());
             antrenorFitnessToBeSaved.setContactInformation(antrenorRequest.getContactInformation());
+            antrenorFitnessToBeSaved.setBestReview(antrenorRequest.getBestReview());
+            antrenorFitnessToBeSaved.setGymInformation(antrenorRequest.getGymInformation());
 
             antrenoriFitnessService.save(antrenorFitnessToBeSaved);
 

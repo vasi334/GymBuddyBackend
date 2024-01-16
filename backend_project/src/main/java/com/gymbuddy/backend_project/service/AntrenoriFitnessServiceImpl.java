@@ -17,7 +17,7 @@ public class AntrenoriFitnessServiceImpl implements AntrenoriFitnessService {
 
     /**
      * Folosim Pattern-ul depdendecy injection pentru a atine low coupling, high cohesion
-     * Tag-ul @Autowired face rapida gasirea @Bean-uui de tip Repository, AntrenoriFitnessRepoository
+     * Tag-ul @Autowired face rapida gasirea @Bean-uui de tip Repository, AntrenoriFitnessRepository
      * @param antrenoriFitnessRepository-AntrenoriFitnessRepository
      */
     @Autowired
@@ -79,13 +79,15 @@ public class AntrenoriFitnessServiceImpl implements AntrenoriFitnessService {
     /**
      * @param antrenorFitness-AntrenorFitness
      * @return Obiectul DTO asociat(doar informatiile necesare ale unui antrenor
-     * de fitness de care avem nevoie), folosinf prototipul Builder!!!("inlantuire constructii")
+     * de fitness de care avem nevoie), folosind prototipul Builder!!!("inlantuire constructii")
      */
     private AntrenorFitnessDTO mapToDTO(AntrenorFitness antrenorFitness){
         AntrenorFitnessDTO antrenorFitnessDTO = AntrenorFitnessDTO.builder().
                 id(antrenorFitness.getId()).
                 lastName(antrenorFitness.getLastName()).
                 firstName(antrenorFitness.getFirstName()).
+                gymInformation(antrenorFitness.getGymInformation()).
+                bestReview(antrenorFitness.getBestReview()).
                 contactInformation(antrenorFitness.getContactInformation()).build();
         return antrenorFitnessDTO;
     }

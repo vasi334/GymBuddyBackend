@@ -29,6 +29,14 @@
       <label for="informatiiContact" class="form-label">Informatii contact</label>
       <input type="text" class="form-control" id="informatiiContact" required>
     </div>
+    <div class="mb-3">
+      <label for="gymnume" class="form-label">Nume Sală</label>
+      <input type="text" class="form-control" id="gymnume" required>
+    </div>
+    <div class="mb-3">
+      <label for="bestReview" class="form-label">Recenzia de top a antrenorului</label>
+      <input type="text" class="form-control" id="bestReview" required>
+    </div>
     <button type="button" class="btn btn-primary" onclick="saveAntrenor()">Salvează</button>
   </form>
 </div>
@@ -37,11 +45,15 @@
     const nume = document.getElementById('nume').value;
     const prenume = document.getElementById('prenume').value;
     const informatiiContact = document.getElementById('informatiiContact').value;
+    const gymInformatii = document.getElementById('gymnume').value;
+    const bestReview = document.getElementById('bestReview').value;
 
     const data = {
       firstName: nume,
       lastName: prenume,
       contactInformation: informatiiContact,
+      gymInformation: gymInformatii,
+      bestReview: bestReview
     };
 
     fetch('/antrenori/adauga_antrenor', {

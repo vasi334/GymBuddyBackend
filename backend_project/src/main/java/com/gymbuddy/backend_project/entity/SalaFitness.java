@@ -15,16 +15,26 @@ import lombok.Setter;
 @Table(name="sali")
 public class SalaFitness {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false,
+            name = "id",
+            updatable = false)
     private Long id;
 
-    @Column(nullable=false)
+    @Column(nullable=false,
+            name = "nume",
+            columnDefinition = "TEXT"
+    )
     private String nume;
 
-    @Column(nullable=false)
+    @Column(nullable=false,
+            name = "adresa",
+            columnDefinition = "TEXT")
     private String adresa;
 
-    @Column(nullable=false)
+    @Column(nullable=false,
+            name = "webAdresa",
+            columnDefinition = "TEXT")
     private String webAdresa;
 
     public SaliDto modificareSali() {

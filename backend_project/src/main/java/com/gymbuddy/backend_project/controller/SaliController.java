@@ -10,22 +10,35 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ Controller de tip REST(clasa Bean) ce se ocupa de handluirea requesturilor ce sunt trimise
+ la adresa URL "../sali"(plecand de la localhost:...)
+ */
+
 @Controller
-@RequestMapping("/gyms")
+@RequestMapping("/sali")
 public class SaliController {
 
     private final SaliService saliService;
+    /**
+     * Depdendency injection
+     * @param saliService-SaliService
+     */
 
     @Autowired
     public SaliController(SaliService saliService) {
         this.saliService = saliService;
     }
 
+    /**
+     * @return Multimea de informatii dorite ale salilor existente, prezentate la pagina dorita
+     * Numele, adresa, adresa web
+     */
     @GetMapping
     public String getAllSali(Model model) {
         List<SalaFitness> sali = saliService.getAllSali();
         model.addAttribute("sali", sali);
-        return "gyms";
+        return "sali_fitness";
     }
 
     @GetMapping("/add_sali_fitness")
@@ -33,6 +46,13 @@ public class SaliController {
         return "add_sali_fitness";
     }
 
+    /**
+     *
+     * @param salaFitnessRequest - Sala de fitness pe care dorim să o adaugam
+     * @return Raspunsul vizavi de adaugarea cu succes a salii
+     * sau esuarea adaugarii acesteia(fie informatiile
+     * prezentate sunt deja preluate de catre o alta sala, fie etc)
+     */
     @PostMapping("/add_sali_fitness")
     public ResponseEntity<String> createSalaFitness(@RequestBody SalaFitness salaFitnessRequest){
         try {
@@ -66,6 +86,13 @@ public class SaliController {
         return "redirect:/sali";
     }
 
+    /**
+     *
+     * @param id - Id-ul salii de fitness pe care dorim sa o stergem
+     * @return Raspunsul vizavi de stergerea cu succes a salii(A existat
+     * o sala fitness de Id dorit) sau absenta salii de fitness de Id dorit ce dorim
+     * sa o stergem
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteSala(@PathVariable Long id) {
         try {

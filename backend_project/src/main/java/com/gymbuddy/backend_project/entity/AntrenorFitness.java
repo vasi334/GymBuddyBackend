@@ -45,6 +45,22 @@ public class AntrenorFitness {
             columnDefinition = "TEXT")
     private String contactInformation;
 
+    /**
+     * It s possible for trainers TO not be affiliated with
+     * any gyms whatsoever; gymInformation respresent the NAME of teh affiliated gym
+     */
+    @Column(name = "gym_information",
+    columnDefinition = "TEXT")
+    private String gymInformation;
+
+    /**
+     * It s possible for trainers TO not have any reviews YET,
+     * they might have recently began their activity
+     */
+    @Column(name = "best_review",
+            columnDefinition = "TEXT")
+    private String bestReview;
+
 
     /**
      * In momentul in care lucram cu tipuri de date ce nu sunt simple/primitive(

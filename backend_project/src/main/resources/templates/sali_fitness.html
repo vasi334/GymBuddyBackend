@@ -31,7 +31,7 @@
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
         <tr>
-<!--            <th>ID</th>-->
+            <!--            <th>ID</th>-->
             <th>Nume</th>
             <th>Adresă</th>
             <th>Adresă web</th>
@@ -40,7 +40,7 @@
         </thead>
         <tbody>
         <tr th:each="sala : ${sali}">
-<!--            <td th:text="${sala.id}"></td>-->
+            <!--            <td th:text="${sala.id}"></td>-->
             <td th:text="${sala.nume}"></td>
             <td th:text="${sala.adresa}"></td>
             <td th:text="${sala.webAdresa}"></td>
@@ -59,14 +59,14 @@
                 fetch('/sali/' + salaId, {
                     method: 'DELETE',
                 })
-            .then(response => {
-                    if (response.ok) {
-                        alert('Sala stearsa cu succes!');
-                        location.reload();
-                    } else {
-                        alert('Eroare la ștergerea sălii.');
-                    }
-                })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Sala stearsa cu succes!');
+                            location.reload();
+                        } else {
+                            alert('Eroare la ștergerea sălii.');
+                        }
+                    })
                     .catch(error => {
                         console.error('Eroare:', error);
                         alert('Eroare la comunicarea cu serverul.');

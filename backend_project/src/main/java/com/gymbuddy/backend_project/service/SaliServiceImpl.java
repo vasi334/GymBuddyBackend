@@ -1,38 +1,62 @@
 package com.gymbuddy.backend_project.service;
 
-import com.gymbuddy.backend_project.dto.SaliDto;
 import com.gymbuddy.backend_project.entity.SalaFitness;
 import com.gymbuddy.backend_project.repository.SaliRepository;
+import com.gymbuddy.backend_project.service.SaliService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class SaliServiceImpl implements SaliService{
-    private SaliRepository saliRepository;
+public class SaliServiceImpl implements SaliService {
 
-    public SaliServiceImpl(SaliRepository saliRepository){
+    private final SaliRepository saliRepository;
+
+    @Autowired
+    public SaliServiceImpl(SaliRepository saliRepository) {
         this.saliRepository = saliRepository;
     }
 
-
     @Override
-    public void saveSali(SaliDto salaFitness) {
-        saliRepository.save(salaFitness.getSala());
+    public List<SalaFitness> getAllSali() {
+        return saliRepository.findAll();
     }
 
     @Override
-    public SalaFitness findSalaFitnessByWebAdress(String webAdress) {
-        return saliRepository.findByWebAdress(webAdress);
+    public SalaFitness getSalaById(Long id) {
+        return saliRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<SalaFitness> findAllSali() {
-        List<SalaFitness> salaFitnesses=saliRepository.findAll();
-        List<SalaFitness> saliDto=new ArrayList<>();
-        for (SalaFitness i :salaFitnesses)
-            saliDto.add(i);
-        return saliDto;
+    @Transactional
+    public SalaFitness createSala(SalaFitness sala) {
+        return saliRepository.save(sala);
+    }
+
+    @Override
+    public SalaFitness updateSala(Long id, SalaFitness updatedSala) {
+        SalaFitness existingSala = saliRepository.findById(id).orElse(null);
+
+        if (existingSala != null) {
+            existingSala.setNume(updatedSala.getNume());
+            existingSala.setAdresa(updatedSala.getAdresa());
+            existingSala.setWebAdresa(updatedSala.getWebAdresa());
+
+            return saliRepository.save(existingSala);
+        }
+
+        return null;
+    }
+
+    @Override
+    public void deleteSala(Long id) {
+        saliRepository.deleteById(id);
+    }
+
+    @Override
+    public List<SalaFitness> getSaliByNume(String nume) {
+        return saliRepository.findByNume(nume);
     }
 }

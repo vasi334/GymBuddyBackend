@@ -17,16 +17,12 @@ public class SaliDto
     private Long id;
 
     @NotEmpty
-    private String Name;
+    private String nume;
 
     @NotEmpty
-    private String adress;
+    private String adresa;
 
     @NotEmpty(message = "Web adress should not be empty!")
-    private String webAdress;
+    private String web_adresa;
 
-    public SalaFitness getSala()
-    {
-        return new SalaFitness(id,Name,adress,webAdress);
-    }
 }

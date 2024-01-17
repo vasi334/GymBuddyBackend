@@ -30,18 +30,23 @@ public class SpringSecurity {
                 .authorizeHttpRequests((authorize) ->
                         authorize.requestMatchers("/videos/add_video").permitAll()
                                 .requestMatchers("/register/**").permitAll()
-                                .requestMatchers("/index").permitAll()
+                                .requestMatchers("/signup").permitAll()
+                                .requestMatchers("/my-account").permitAll()
+                                .requestMatchers("/questionnaire1").permitAll()
+                                .requestMatchers("/questionnaire2").permitAll()
+                                .requestMatchers("/home-curiosity").permitAll()
+                                .requestMatchers("/home").permitAll()
                                 .requestMatchers("/users").hasRole("ADMIN")
-                                .requestMatchers("/nutritionisti").permitAll()
+                                .requestMatchers("/nutritionists").permitAll()
                                 .requestMatchers("/adaugare_nutritionist").permitAll()
-                                .requestMatchers("/videos").permitAll()
-                                .requestMatchers("/videos/{id}").permitAll()
-                                .requestMatchers("/antrenori").permitAll()
+                                .requestMatchers("/workouts").permitAll()
+                                .requestMatchers("/trainers").permitAll()
+                                .requestMatchers("/gyms").permitAll()
+                                .requestMatchers("/gyms/add_sali_fitness").permitAll()
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/users")
                                 .permitAll()
                 ).logout(
                         logout -> logout

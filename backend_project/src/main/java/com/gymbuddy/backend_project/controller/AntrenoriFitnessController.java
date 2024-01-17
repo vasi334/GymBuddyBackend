@@ -34,11 +34,11 @@ public class AntrenoriFitnessController {
      * @return Multimea de informatii doritre(DTO) ale antrenorilor existenti, prezentati la pagia dorita
      * Numele, prenumele, informatii de contact, ETC
      */
-    @GetMapping("/antrenori")
+    @GetMapping("/trainers")
     public String findAllAntrenoriFitness(Model model) {
         List<AntrenorFitnessDTO> listaAntrenori = antrenoriFitnessService.findAllAntrenoriFitness();
         model.addAttribute("antrenori", listaAntrenori);
-        return "antrenori"; // This should be the name of your Thymeleaf template (antrenori.html)
+        return "trainers"; // This should be the name of your Thymeleaf template (antrenori.html)
     }
 
 

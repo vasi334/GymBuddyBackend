@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
         user.setWeight(userDto.getWeight());
         user.setCity(userDto.getCity());
         user.setDateOfBirth(userDto.getDateOfBirth());
+        user.setSex(userDto.getSex());
 
         userRepository.save(user);
 

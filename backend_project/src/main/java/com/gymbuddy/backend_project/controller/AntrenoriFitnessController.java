@@ -38,7 +38,7 @@ public class AntrenoriFitnessController {
     public String findAllAntrenoriFitness(Model model) {
         List<AntrenorFitnessDTO> listaAntrenori = antrenoriFitnessService.findAllAntrenoriFitness();
         model.addAttribute("antrenori", listaAntrenori);
-        return "trainers"; // This should be the name of your Thymeleaf template (antrenori.html)
+        return "trainers";
     }
 
 

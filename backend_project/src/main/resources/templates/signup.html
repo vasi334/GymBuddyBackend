@@ -3,45 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="http://localhost:5500/gym-buddy-frontend/src/signup-page/signup.css">
-  <link rel="icon" href="http://localhost:5500/gym-buddy-frontend/src/utils/favicon.png">
+  <link rel="stylesheet" href="http://localhost:5500/gymBuddyUI-main/src/signup-page/signup.css">
+  <link rel="icon" href="http://localhost:5500/gymBuddyUI-main/src/utils/favicon.png">
   <script src="https://kit.fontawesome.com/9c00960078.js" crossorigin="anonymous"></script>
   <title>Înregistrare</title>
 </head>
 <body>
 <div class="window-container">
-  <img id="bg" src="http://localhost:5500/gym-buddy-frontend/src/utils/bg-image.jpg" alt="bg">
-  <img id="logo" src="http://localhost:5500/gym-buddy-frontend/src/utils/logo.png" alt="logo">
+  <img id="bg" src="http://localhost:5500/gymBuddyUI-main/src/utils/bg-image.jpg" alt="bg">
+  <img id="logo" src="http://localhost:5500/gymBuddyUI-main/src/utils/logo.png" alt="logo">
   <div id="signup-container">
     <h3 id="signup">Înregistrare</h3>
     <div id="name-form">
       <i class="fa fa-regular fa-user"></i>
       <form>
-        <input type="text" id="name-input" name="Name" placeholder="Nume">
+        <input type="text" id="name-input" name="Name" placeholder="Nume" required>
       </form>
     </div>
     <div id="email-form">
       <i class="fa fa-light fa-envelope"></i>
       <form>
-        <input type="text" id="email-input" name="Email" placeholder="Email">
+        <input type="text" id="email-input" name="Email" placeholder="Email" required>
       </form>
     </div>
     <div id="psw-form">
       <i class="fa fa-light fa-unlock"></i>
       <form>
-        <input type="password" id="psw-input" name="Password" placeholder="Parolă">
+        <input type="password" id="psw-input" name="Password" placeholder="Parolă" required>
       </form>
     </div>
     <div id="re-psw-form">
       <i class="fa fa-light fa-lock"></i>
       <form>
-        <input type="password" id="re-psw-input" name="Confirm-Password" placeholder="Confirmare parolă">
+        <input type="password" id="re-psw-input" name="Confirm-Password" placeholder="Confirmare parolă" required>
       </form>
     </div>
     <button class="button" id="button">Înregistrează-te</button>
   </div>
 </div>
-<script src="http://localhost:5500/gym-buddy-frontend/src/signup-page/signup.js"></script>
+<script src="http://localhost:5500/gymBuddyUI-main/src/signup-page/signup.js"></script>
 
 </body>
 </html>

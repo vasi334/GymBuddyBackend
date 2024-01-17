@@ -19,12 +19,12 @@ public class NutritionisController {
         this.nutritionistService = nutritionistService;
     }
 
-    @GetMapping("/nutritionisti")
+    @GetMapping("/nutritionists")
     String getAllNutritionisti(Model model)
     {
         List<Nutritionist> listaNutritionisti=nutritionistService.findAllNutritionisti();
         model.addAttribute("nutritionisti", listaNutritionisti);
-        return "nutritionisti";
+        return "nutritionists";
     }
     @GetMapping("/adauga_nutritionist")
     public String showRegistrationForm(Model model){

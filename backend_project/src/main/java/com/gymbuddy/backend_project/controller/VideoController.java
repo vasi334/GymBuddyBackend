@@ -8,11 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/videos")
+@RequestMapping
 public class VideoController {
 
     private final VideoService videoService;
@@ -22,11 +23,9 @@ public class VideoController {
         this.videoService = videoService;
     }
 
-    @GetMapping
-    public String getAllVideos(Model model) {
-        List<Video> videos = videoService.getAllVideos();
-        model.addAttribute("videos", videos);
-        return "videos";
+    @GetMapping("/workouts")
+    public String getWorkoutsPage(Model model) {
+        return "workouts";
     }
 
     @GetMapping("/{id}")

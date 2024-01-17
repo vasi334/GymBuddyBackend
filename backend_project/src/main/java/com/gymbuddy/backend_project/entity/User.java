@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,29 +25,32 @@ public class User
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable=false)
+    @Column(name = "name")
     private String name;
 
-    @Column(nullable=false, unique=true)
+    @Column(name = "email", unique = true)
     private String email;
 
-    @Column(nullable=false)
+    @Column(name = "password")
     private String password;
 
-    @Column(nullable=false)
+    @Column(name = "goal")
     private String goal;
 
-    @Column(nullable=false)
+    @Column(name = "height")
     private String height;
 
-    @Column(nullable=false)
+    @Column(name = "weight")
     private String weight;
 
-    @Column(nullable=false)
+    @Column(name = "city")
     private String city;
 
-    @Column(nullable = false, columnDefinition = "TIMESTAMP")
-    private LocalDate dateOfBirth;
+    @Column(name = "sex")
+    private String sex;
+
+    @Column(name = "dateOfBirth")
+    private String dateOfBirth;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(

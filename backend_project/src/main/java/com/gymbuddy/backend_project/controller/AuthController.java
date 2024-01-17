@@ -1,8 +1,10 @@
 package com.gymbuddy.backend_project.controller;
 
 import com.gymbuddy.backend_project.entity.User;
+import com.gymbuddy.backend_project.entity.Video;
 import com.gymbuddy.backend_project.service.UserService;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import com.gymbuddy.backend_project.dto.UserDto;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -23,18 +26,56 @@ public class AuthController {
     }
 
     // handler method to handle home page request
-    @GetMapping("/index")
+    @GetMapping("/home")
     public String home(){
-        return "index";
+        return "home";
     }
 
+
     // handler method to handle user registration form request
-    @GetMapping("/register")
+    @GetMapping("/signup")
     public String showRegistrationForm(Model model){
         // create model object to store form data
         UserDto user = new UserDto();
         model.addAttribute("user", user);
-        return "register";
+        return "signup";
+    }
+
+    @PostMapping("/signup")
+    public String saveSignUpData(@RequestBody UserDto userDto) {
+        userService.saveSignUpData(userDto);
+        return "Datele au fost salvate cu succes";
+    }
+
+    @GetMapping("/questionnaire1")
+    public String showQuestionnaire1(Model model) {
+        UserDto user = new UserDto();
+        model.addAttribute("user", user);
+        return "questionnaire1";
+    }
+
+    @PostMapping("/questionnaire1")
+    public String saveQuestionnaire1Data(@RequestBody UserDto userDto) {
+        userService.saveQuestionnaire1Data(userDto);
+        return "Datele au fost salvate cu succes";
+    }
+
+    @GetMapping("/questionnaire2")
+    public String showQuestionnaire2(Model model) {
+        UserDto user = new UserDto();
+        model.addAttribute("user", user);
+        return "questionnaire2";
+    }
+
+    @PostMapping("/questionnaire2")
+    public String saveQuestionnaire2Data(@RequestBody UserDto userDto) {
+        userService.saveQuestionnaire2Data(userDto);
+        return "Datele au fost salvate cu succes";
+    }
+
+    @GetMapping("/home-curiosity")
+    public String showHomeCuriosity(Model model) {
+        return "home-curiosity";
     }
 
     // handler method to handle user registration form submit request
@@ -71,4 +112,11 @@ public class AuthController {
     public String login(){
         return "login";
     }
+
+    @GetMapping("/my-account")
+    public String goToMyAccount(){
+        return "my-account";
+    }
+
+
 }

@@ -15,24 +15,27 @@ import java.util.List;
 public class NutritionisController {
     private NutritionistService nutritionistService;
 
+    // Constructor to inject NutritionistService
     public NutritionisController(NutritionistService nutritionistService) {
         this.nutritionistService = nutritionistService;
     }
 
+    // Handler method to get all nutritionists and display them in a view
     @GetMapping("/nutritionists")
     String getAllNutritionisti(Model model)
     {
-        List<Nutritionist> listaNutritionisti=nutritionistService.findAllNutritionisti();
+        List<Nutritionist> listaNutritionisti = nutritionistService.findAllNutritionisti();
         model.addAttribute("nutritionisti", listaNutritionisti);
         return "nutritionists";
     }
+
+    // Handler method to show the registration form for adding a nutritionist
     @GetMapping("/adauga_nutritionist")
     public String showRegistrationForm(Model model){
-        // create model object to store form data
+        // Create model object to store form data
         NutritionistDto nutritionist = new NutritionistDto();
         model.addAttribute("nutritionist", nutritionist);
         return "adaugare_nutritionist";
     }
-
 
 }

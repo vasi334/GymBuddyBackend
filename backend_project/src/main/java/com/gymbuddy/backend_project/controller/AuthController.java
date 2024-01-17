@@ -25,28 +25,29 @@ public class AuthController {
         this.userService = userService;
     }
 
-    // handler method to handle home page request
+    // Handler method to handle home page request
     @GetMapping("/home")
     public String home(){
         return "home";
     }
 
-
-    // handler method to handle user registration form request
+    // Handler method to handle user registration form request
     @GetMapping("/signup")
     public String showRegistrationForm(Model model){
-        // create model object to store form data
+        // Create model object to store form data
         UserDto user = new UserDto();
         model.addAttribute("user", user);
         return "signup";
     }
 
+    // Handler method to handle saving user registration data
     @PostMapping("/signup")
     public String saveSignUpData(@RequestBody UserDto userDto) {
         userService.saveSignUpData(userDto);
-        return "Datele au fost salvate cu succes";
+        return "Datele au fost salvate cu succes"; // This message needs translation or clarification
     }
 
+    // Handler method to show the first questionnaire
     @GetMapping("/questionnaire1")
     public String showQuestionnaire1(Model model) {
         UserDto user = new UserDto();
@@ -54,12 +55,14 @@ public class AuthController {
         return "questionnaire1";
     }
 
+    // Handler method to handle saving data from the first questionnaire
     @PostMapping("/questionnaire1")
     public String saveQuestionnaire1Data(@RequestBody UserDto userDto) {
         userService.saveQuestionnaire1Data(userDto);
-        return "Datele au fost salvate cu succes";
+        return "Datele au fost salvate cu succes"; // This message needs translation or clarification
     }
 
+    // Handler method to show the second questionnaire
     @GetMapping("/questionnaire2")
     public String showQuestionnaire2(Model model) {
         UserDto user = new UserDto();
@@ -67,18 +70,20 @@ public class AuthController {
         return "questionnaire2";
     }
 
+    // Handler method to handle saving data from the second questionnaire
     @PostMapping("/questionnaire2")
     public String saveQuestionnaire2Data(@RequestBody UserDto userDto) {
         userService.saveQuestionnaire2Data(userDto);
-        return "Datele au fost salvate cu succes";
+        return "Datele au fost salvate cu succes"; // This message needs translation or clarification
     }
 
+    // Handler method to show the home curiosity page
     @GetMapping("/home-curiosity")
     public String showHomeCuriosity(Model model) {
         return "home-curiosity";
     }
 
-    // handler method to handle user registration form submit request
+    // Handler method to handle user registration form submit request
     @PostMapping("/register/save")
     public String registration(@Valid @ModelAttribute("user") UserDto userDto,
                                BindingResult result,
@@ -99,7 +104,7 @@ public class AuthController {
         return "redirect:/register?success";
     }
 
-    // handler method to handle list of users
+    // Handler method to handle list of users
     @GetMapping("/users")
     public String users(Model model){
         List<UserDto> users = userService.findAllUsers();
@@ -107,16 +112,16 @@ public class AuthController {
         return "users";
     }
 
-    // handler method to handle login request
+    // Handler method to handle login request
     @GetMapping("/login")
     public String login(){
         return "login";
     }
 
+    // Handler method to go to the user's account page
     @GetMapping("/my-account")
     public String goToMyAccount(){
         return "my-account";
     }
-
 
 }

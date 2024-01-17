@@ -16,17 +16,21 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SpringSecurity {
 
+    // Injecting the custom UserDetailsService
     @Autowired
     private UserDetailsService userDetailsService;
 
+    // Bean to provide a BCryptPasswordEncoder for password hashing
     @Bean
     public static PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
+    // Security configuration using SecurityFilterChain
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
+                // Configuring authorization rules for different paths
                 .authorizeHttpRequests((authorize) ->
                         authorize.requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/index").permitAll()
@@ -42,13 +46,17 @@ public class SpringSecurity {
                                 .requestMatchers("/my-account").permitAll()
                                 .requestMatchers("/questionnaire1").permitAll()
                                 .requestMatchers("/questionnaire2").permitAll()
-                ).formLogin(
+                )
+                // Configuring form-based login
+                .formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
                                 .defaultSuccessUrl("/users")
                                 .permitAll()
-                ).logout(
+                )
+                // Configuring logout
+                .logout(
                         logout -> logout
                                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                                 .permitAll()
@@ -56,6 +64,7 @@ public class SpringSecurity {
         return http.build();
     }
 
+    // Configuring global authentication using the custom UserDetailsService and password encoder
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth

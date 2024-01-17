@@ -5,11 +5,13 @@ import com.gymbuddy.backend_project.dto.SaliDto;
 import com.gymbuddy.backend_project.entity.Nutritionist;
 import com.gymbuddy.backend_project.entity.SalaFitness;
 import com.gymbuddy.backend_project.service.SaliService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
+@Controller
 public class SaliController {
     private SaliService saliService;
 
@@ -17,7 +19,7 @@ public class SaliController {
         this.saliService = saliService;
     }
 
-    @GetMapping("\sali")
+    @GetMapping("/sali")
     String getAllNutritionisti(Model model)
     {
         List<SalaFitness> listaSali=saliService.findAllSali();

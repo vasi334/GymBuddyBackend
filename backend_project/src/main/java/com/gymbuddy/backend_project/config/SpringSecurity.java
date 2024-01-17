@@ -30,11 +30,12 @@ public class SpringSecurity {
                 .authorizeHttpRequests((authorize) ->
                         authorize.requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/index").permitAll()
-                               .requestMatchers("/users").hasRole("ADMIN")
-                                .requestMatchers("/nutritionisti").permitAll()
-                                .requestMatchers("/adaugare_nutritionist").permitAll()
-                                .requestMatchers("/videos").permitAll()
-                                .requestMatchers("/antrenori").permitAll()
+                                .requestMatchers("/users").hasRole("ADMIN")
+                                .requestMatchers("/nutritionisti").hasRole("ADMIN")
+                                .requestMatchers("/adaugare_nutritionist").hasRole("ADMIN")
+                                .requestMatchers("/videos").hasRole("ADMIN")
+                                .requestMatchers("/antrenori").hasRole("ADMIN")
+                                .requestMatchers("/sali").hasRole("ADMIN")
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")

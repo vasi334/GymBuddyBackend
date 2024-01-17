@@ -20,7 +20,7 @@ public class NutritionisController {
     }
 
     @GetMapping("/nutritionisti")
-    String getAllNutritionisti(Model model)
+    public String getAllNutritionisti(Model model)
     {
         List<Nutritionist> listaNutritionisti=nutritionistService.findAllNutritionisti();
         model.addAttribute("nutritionisti", listaNutritionisti);

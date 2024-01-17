@@ -36,11 +36,11 @@ public class AntrenoriFitnessController {
      * @return Multimea de informatii dorite(DTO) ale antrenorilor existenti, prezentati la pagina dorita
      * Numele, prenumele, informatii de contact, ETC
      */
-    @GetMapping("/antrenori")
+    @GetMapping("/trainers")
     public String findAllAntrenoriFitness(Model model) {
         List<AntrenorFitnessDTO> listaAntrenori = antrenoriFitnessService.findAllAntrenoriFitness();
         model.addAttribute("antrenori", listaAntrenori);
-        return "antrenori";
+        return "trainers";
     }
     @GetMapping("/antrenori/adauga_antrenor")
     public String showAddAntrenorPage(){

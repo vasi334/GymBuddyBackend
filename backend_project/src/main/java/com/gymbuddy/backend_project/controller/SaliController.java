@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/sali")
+@RequestMapping("/gyms")
 public class SaliController {
 
     private final SaliService saliService;
@@ -38,7 +38,7 @@ public class SaliController {
     public String getAllSali(Model model) {
         List<SalaFitness> sali = saliService.getAllSali();
         model.addAttribute("sali", sali);
-        return "sali_fitness";
+        return "gyms";
     }
 
     @GetMapping("/add_sali_fitness")

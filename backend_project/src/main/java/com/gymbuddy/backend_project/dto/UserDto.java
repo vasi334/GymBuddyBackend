@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.time.LocalDate;
 
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDto {
 
     @Id

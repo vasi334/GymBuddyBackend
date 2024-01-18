@@ -2,9 +2,12 @@ package com.gymbuddy.backend_project.controller;
 
 import com.gymbuddy.backend_project.entity.User;
 import com.gymbuddy.backend_project.entity.Video;
+import com.gymbuddy.backend_project.security.CustomUserDetailsService;
 import com.gymbuddy.backend_project.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.ui.Model;
 import com.gymbuddy.backend_project.dto.UserDto;
 import org.springframework.stereotype.Controller;
@@ -20,6 +23,7 @@ import java.util.List;
 public class AuthController {
 
     private UserService userService;
+    private CustomUserDetailsService security;
 
     public AuthController(UserService userService) {
         this.userService = userService;
@@ -44,7 +48,7 @@ public class AuthController {
     @PostMapping("/signup")
     public String saveSignUpData(@RequestBody UserDto userDto) {
         userService.saveSignUpData(userDto);
-        return "Datele au fost salvate cu succes"; // This message needs translation or clarification
+        return "Datele au fost salvate cu succes";
     }
 
     // Handler method to show the first questionnaire
@@ -124,4 +128,18 @@ public class AuthController {
         return "my-account";
     }
 
-}
+    @PostMapping("/my-account")
+    public ResponseEntity<UserDto> getUserData(Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        User user = userService.findUserByEmail(userDetails.getUsername());
+        UserDto userDto = convertUserToDto(user);
+        return ResponseEntity.ok(userDto);
+    }
+
+    // Convert User entity to UserDto if needed
+    private UserDto convertUserToDto(User user) {
+        // Implement conversion logic as needed
+        // Example: return new UserDto(user.getEmail(), user.getOtherField());
+        return null;
+    }}
+

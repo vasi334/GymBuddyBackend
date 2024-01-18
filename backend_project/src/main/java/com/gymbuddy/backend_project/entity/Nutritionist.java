@@ -2,10 +2,7 @@ package com.gymbuddy.backend_project.entity;
 
 import com.gymbuddy.backend_project.dto.NutritionistDto;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Setter
 @Getter
@@ -28,7 +25,7 @@ public class Nutritionist {
     private String email;
     @Column(nullable=false)
     private String site;
-    NutritionistDto modificareNutritionist()
+    public NutritionistDto modificareNutritionist()
     {
         return new NutritionistDto(id, nume,specializare,nr_telefon,email,site);
     }

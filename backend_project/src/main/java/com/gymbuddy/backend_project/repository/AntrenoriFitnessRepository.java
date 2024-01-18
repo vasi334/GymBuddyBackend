@@ -21,4 +21,6 @@ public interface AntrenoriFitnessRepository extends JpaRepository<AntrenorFitnes
      */
     @Query("select a from AntrenorFitness a where a.contactInformation = ?1")
     Optional<AntrenorFitness> findByEmail(String contactInformation);
+
+
 }

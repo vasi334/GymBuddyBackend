@@ -16,38 +16,47 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SpringSecurity {
 
+    // Injecting the custom UserDetailsService
     @Autowired
     private UserDetailsService userDetailsService;
 
+    // Bean to provide a BCryptPasswordEncoder for password hashing
     @Bean
     public static PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
+    // Security configuration using SecurityFilterChain
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
+                // Configuring authorization rules for different paths
                 .authorizeHttpRequests((authorize) ->
-                        authorize.requestMatchers("/videos/add_video").permitAll()
-                                .requestMatchers("/register/**").permitAll()
+                        authorize.requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/index").permitAll()
                                 .requestMatchers("/users").hasRole("ADMIN")
-                                .requestMatchers("/nutritionisti").permitAll()
-                                .requestMatchers("/adaugare_nutritionist").permitAll()
-                                .requestMatchers("/videos").permitAll()
-                                .requestMatchers("/sali").permitAll()
-                                .requestMatchers("/sali/add_sali_fitness").permitAll()
-                                .requestMatchers("/videos/{id}").permitAll()
-                                .requestMatchers("/antrenori").permitAll()
-                                .requestMatchers("/antrenori/{id}").permitAll()
-                                .requestMatchers("/antrenori/adauga_antrenor").permitAll()
-                ).formLogin(
+                                .requestMatchers("/nutritionists").permitAll()
+                                .requestMatchers("/gyms").permitAll()
+                                .requestMatchers("/workouts").permitAll()
+                                .requestMatchers("/trainers").permitAll()
+                                .requestMatchers("/home").permitAll()
+                                .requestMatchers("/login").permitAll()
+                                .requestMatchers("/signup").permitAll()
+                                .requestMatchers("/home-curiosity").permitAll()
+                                .requestMatchers("/my-account").permitAll()
+                                .requestMatchers("/questionnaire1").permitAll()
+                                .requestMatchers("/questionnaire2").permitAll()
+                )
+                // Configuring form-based login
+                .formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
                                 .defaultSuccessUrl("/users")
                                 .permitAll()
-                ).logout(
+                )
+                // Configuring logout
+                .logout(
                         logout -> logout
                                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                                 .permitAll()
@@ -55,6 +64,7 @@ public class SpringSecurity {
         return http.build();
     }
 
+    // Configuring global authentication using the custom UserDetailsService and password encoder
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth

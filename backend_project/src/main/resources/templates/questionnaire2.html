@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://localhost:5500/gymBuddyUI-main/src/questionnaire2-page/questionnaire2.css">
+  <link rel="icon" href="http://localhost:5500/gymBuddyUI-main/src/utils/favicon.png">
+  <title>Chestionar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<img src="http://localhost:5500/gymBuddyUI-main/src/utils/logo.png" alt="Logo" class="logo" id="logo">
+<body>
+<div class="container">
+  <div id="text-container">Informațiile tale</div>
+  <div class="split-button">
+    <button class="left-half" onclick="selectSide('Bărbat')">Bărbat</button>
+    <button class="right-half" onclick="selectSide('Femeie')">Femeie</button>
+  </div>
+
+
+  <form class="user-form">
+    <input type="text" id="email-input" name="Date of birth" placeholder="Data nașterii" required>
+  </form>
+  <form  class="user-form">
+    <input type="text" id="height" name="Height-input" placeholder="Înălțime" required>
+  </form>
+  <form class="user-form">
+    <input type="text" id="weight-input" name="Weight" placeholder="Greutate" required>
+  </form>
+  <form class="user-form">
+    <input type="text" id="city-input" name="City" placeholder="Oraș"required>
+  </form>
+
+  <button class="image-button">
+    <img src="http://localhost:5500/gymBuddyUI-main/src/utils/previous.png" alt="Imaginea" class="button-image" id="previous">
+  </button>
+
+  <button class="image-button">
+    <img src="http://localhost:5500/gymBuddyUI-main/src/utils/next.png" alt="Imaginea" class="button-image" id="next">
+  </button>
+</div>
+<script src="http://localhost:5500/gymBuddyUI-main/src/questionnaire2-page/questionnaire2.js"></script>
+</body>
+</html>

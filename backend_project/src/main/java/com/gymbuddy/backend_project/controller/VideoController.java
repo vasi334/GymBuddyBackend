@@ -8,11 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 @Controller
-@RequestMapping("/videos")
+@RequestMapping
 public class VideoController {
 
     private final VideoService videoService;
@@ -22,13 +23,13 @@ public class VideoController {
         this.videoService = videoService;
     }
 
-    @GetMapping
-    public String getAllVideos(Model model) {
-        List<Video> videos = videoService.getAllVideos();
-        model.addAttribute("videos", videos);
-        return "videos";
+    // Handler method to display the workouts page
+    @GetMapping("/workouts")
+    public String getWorkoutsPage(Model model) {
+        return "workouts";
     }
 
+    // Handler method to get a video by its ID and display it
     @GetMapping("/{id}")
     public String getVideoById(@PathVariable Long id, Model model) {
         Video video = videoService.getVideoById(id);
@@ -36,6 +37,7 @@ public class VideoController {
         return "single_video";
     }
 
+    // Handler method to delete a video by its ID
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteVideo(@PathVariable Long id) {
         try {
@@ -46,7 +48,7 @@ public class VideoController {
         }
     }
 
-
+    // Handler method to get videos by duration and display them
     @GetMapping("/duration/{duration}")
     public String getVideosByDuration(@PathVariable int duration, Model model) {
         List<Video> videos = videoService.getVideosByDuration(duration);
@@ -54,6 +56,7 @@ public class VideoController {
         return "videos";
     }
 
+    // Handler method to get videos by intensity and display them
     @GetMapping("/intensity/{intensity}")
     public String getVideosByIntensity(@PathVariable String intensity, Model model) {
         List<Video> videos = videoService.getVideosByIntensity(intensity);
@@ -61,6 +64,7 @@ public class VideoController {
         return "videos";
     }
 
+    // Handler method to display all videos
     @GetMapping("/display")
     public String displayVideosPage(Model model) {
         List<Video> videos = videoService.getAllVideos();
@@ -68,20 +72,24 @@ public class VideoController {
         return "videos";
     }
 
+    // Handler method to show the add video page
     @GetMapping("/add_video")
     public String showAddVideoPage() {
         return "add_video";
     }
 
+    // Handler method to create a new video
     @PostMapping("/add_video")
     public ResponseEntity<String> createVideo(@RequestBody Video videoRequest) {
         try {
+            // Create a new Video object and set its properties from the request
             Video video = new Video();
             video.setTitle(videoRequest.getTitle());
             video.setUrl(videoRequest.getUrl());
             video.setDurationMinutes(videoRequest.getDurationMinutes());
             video.setIntensity(videoRequest.getIntensity());
 
+            // Call the service to create the video
             videoService.createVideo(video);
 
             return new ResponseEntity<>("Videoclip salvat cu succes!", HttpStatus.OK);

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contul meu</title>
+    <link rel="stylesheet" href="http://localhost:5500/gymBuddyUI-main/src/my-account-page/my-account.css">
+    <link rel="icon" href="http://localhost:5500/gymBuddyUI-main/src/utils/favicon.png">
+</head>
+<body>
+<div class="container">
+    <nav>
+        <img src="http://localhost:5500/gymBuddyUI-main/src/utils/logo.png" class="logo-GymBuddy" id="logo">
+        <ul>
+            <li><a id="home"><span class="menu">Acasă</span></a></li>
+            <li><a id="workouts"><span class="menu1">Antrenamente</span></a></li>
+            <li><a id="gyms"><span class="menu">Săli de fitness</span></a></li>
+            <li><a id="trainers"><span class="menu">Antrenori</span></a></li>
+            <li><a id="nutritionists"><span class="menu">Nutritioniști</span></a></li>
+        </ul>
+    </nav>
+
+
+
+    <div class="info">
+        <div id="text-container">Profilul meu</div>
+
+        <div id="container2">
+            <div id="column1">
+                <form>
+                    <label class="labels">Nume</label>
+                    <input type="text" id="name-input" name="Name" placeholder="">
+                </form>
+
+                <form>
+                    <label class="labels">Email</label>
+                    <input type="email" id="email-input" name="Email" placeholder="">
+                </form>
+
+                <form>
+                    <label class="labels">Parolă</label>
+                    <input type="password" id="psw-input" name="Password">
+                </form>
+
+                <form>
+                    <label class="labels" id="confPw">Confirmare parolă</label>
+                    <input type="password" id="re-psw-input" name="Confirm-Password">
+                </form>
+
+                <form>
+                    <label class="labels">Țelul tău</label>
+                    <select id="options" name="options">
+                        <option value="Lose weight">Scade în greutate</option>
+                        <option value="Increase muscle mass" selected>Mărește masa musculară</option>
+                        <option value="Keep in shape">Rămâi în formă</option>
+                    </select>
+                </form>
+            </div>
+
+            <div id="column2">
+
+                <form>
+                    <label class="labels">Data nașterii</label>
+                    <input type="date" id="date-input" name="Date" placeholder="">
+                </form>
+
+                <form>
+                    <label class="labels">Înălțime</label>
+                    <input type="text" id="height-input" name="Height">
+                </form>
+
+                <form>
+                    <label class="labels">Greutate</label>
+                    <input type="text" id="weight-input" name="Weight">
+                </form>
+
+                <form>
+                    <label class="labels">Oraș</label>
+                    <input type="text" id="city-input" name="City">
+                </form>
+
+                <button type="submit" id="button" name="Save modifications" value="Save modifications">Salvează modificările</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="http://localhost:5500/gymBuddyUI-main/src/my-account-page/my-account.js"></script>
+</body>
+</html>

@@ -11,4 +11,8 @@ public interface UserService {
     User findUserByEmail(String email);
 
     List<UserDto> findAllUsers();
+
+    void saveSignUpData(UserDto userDto);
+    void saveQuestionnaire1Data(UserDto userDto);
+    void saveQuestionnaire2Data(UserDto userDto);
 }

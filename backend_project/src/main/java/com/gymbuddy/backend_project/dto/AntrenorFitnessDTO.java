@@ -27,4 +27,9 @@ public class AntrenorFitnessDTO {
 
     @NotEmpty(message = "Contact Information should not be empty!")
     private String contactInformation;
+
+
+    private String gymInformation;
+
+    private String bestReview;
 }

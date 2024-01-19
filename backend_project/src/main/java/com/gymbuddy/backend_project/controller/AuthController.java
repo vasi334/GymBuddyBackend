@@ -1,13 +1,22 @@
 package com.gymbuddy.backend_project.controller;
 
+import com.gymbuddy.backend_project.dto.LoginDTO;
 import com.gymbuddy.backend_project.entity.User;
 import com.gymbuddy.backend_project.entity.Video;
+import com.gymbuddy.backend_project.repository.RoleRepository;
+import com.gymbuddy.backend_project.repository.UserRepository;
 import com.gymbuddy.backend_project.security.CustomUserDetailsService;
 import com.gymbuddy.backend_project.service.UserService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.ui.Model;
 import com.gymbuddy.backend_project.dto.UserDto;
 import org.springframework.stereotype.Controller;
@@ -22,7 +31,22 @@ import java.util.List;
 @Controller
 public class AuthController {
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
     private UserService userService;
+
+    @Autowired
     private CustomUserDetailsService security;
 
     public AuthController(UserService userService) {

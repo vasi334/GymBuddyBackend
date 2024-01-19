@@ -39,7 +39,7 @@ class UserRepositoryTest {
         user.setHeight(randomText);
         user.setWeight(randomText);
         user.setCity(randomText);
-        user.setDateOfBirth(LocalDate.now());
+        user.setDateOfBirth(LocalDate.now().toString());
         user.setRoles(List.of(rol));
 
         userTestRepository.save(user);

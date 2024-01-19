@@ -38,7 +38,7 @@ public class VideoController {
     }
 
     // Handler method to delete a video by its ID
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/workout/{id}")
     public ResponseEntity<String> deleteVideo(@PathVariable Long id) {
         try {
             videoService.deleteVideo(id);
@@ -69,7 +69,7 @@ public class VideoController {
     public String displayVideosPage(Model model) {
         List<Video> videos = videoService.getAllVideos();
         model.addAttribute("videos", videos);
-        return "videos";
+        return "workouts";
     }
 
     // Handler method to show the add video page
@@ -79,7 +79,7 @@ public class VideoController {
     }
 
     // Handler method to create a new video
-    @PostMapping("/add_video")
+    @PostMapping("/add_workout")
     public ResponseEntity<String> createVideo(@RequestBody Video videoRequest) {
         try {
             // Create a new Video object and set its properties from the request

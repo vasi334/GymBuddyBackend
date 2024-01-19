@@ -24,7 +24,7 @@ public class AntrenorFitness {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)//tipul default e GenerationType.AUTO
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//tipul default e GenerationType.AUTO
     @Column(nullable = false,
             name = "id",
             updatable = false)

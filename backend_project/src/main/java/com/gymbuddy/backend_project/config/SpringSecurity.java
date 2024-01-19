@@ -66,9 +66,6 @@ public class SpringSecurity {
                                 .requestMatchers("/my-account").permitAll()
                                 .requestMatchers("/questionnaire1").permitAll()
                                 .requestMatchers("/questionnaire2").permitAll()
-                                .requestMatchers(PathRequest.toStaticResources()
-                                        .atCommonLocations()).permitAll()
-
                 )
                 // Configuring form-based login
                 .formLogin(

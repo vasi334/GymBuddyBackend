@@ -71,7 +71,7 @@ public class SaliController {
     public String getSalaById(@PathVariable Long id, Model model) {
         SalaFitness sala = saliService.getSalaById(id);
         model.addAttribute("sala", sala);
-        return "detalii_sala";
+        return "gyms";
     }
 
     @PostMapping
@@ -107,6 +107,6 @@ public class SaliController {
     public String getSaliByNume(@RequestParam String nume, Model model) {
         List<SalaFitness> sali = saliService.getSaliByNume(nume);
         model.addAttribute("sali", sali);
-        return "sali_fitness";
+        return "redirect:/sali";
     }
 }

@@ -1,9 +1,7 @@
 package com.gymbuddy.backend_project.controller;
 
 import com.gymbuddy.backend_project.dto.AntrenorFitnessDTO;
-import com.gymbuddy.backend_project.dto.NutritionistDto;
 import com.gymbuddy.backend_project.entity.AntrenorFitness;
-import com.gymbuddy.backend_project.entity.Video;
 import com.gymbuddy.backend_project.service.AntrenoriFitnessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,12 +37,12 @@ public class AntrenoriFitnessController {
     @GetMapping("/trainers")
     public String findAllAntrenoriFitness(Model model) {
         List<AntrenorFitnessDTO> listaAntrenori = antrenoriFitnessService.findAllAntrenoriFitness();
-        model.addAttribute("antrenori", listaAntrenori);
+        model.addAttribute("trainers", listaAntrenori);
         return "trainers";
     }
-    @GetMapping("/antrenori/adauga_antrenor")
+    @GetMapping("/trainers/add_trainer")
     public String showAddAntrenorPage(){
-        return "add_antrenor";
+        return "trainers";
     }
 
     /**
@@ -54,7 +52,7 @@ public class AntrenoriFitnessController {
      * sau esuarea adaugarii acestuia(fie informatiile de contact ce le-a
      * prezentat sunt deja preluate de catre un alt antrenor, fie etc)
      */
-    @PostMapping("/antrenori/adauga_antrenor")
+    @PostMapping("/trainers/add_trainer")
     public ResponseEntity<String> createAntrenor(@RequestBody AntrenorFitness antrenorRequest) {
         try {
             AntrenorFitness antrenorFitnessToBeSaved = new AntrenorFitness();
@@ -80,7 +78,7 @@ public class AntrenoriFitnessController {
      * un antrenor de Id dorit) sau absenta antrenorului de Id dorit ce dorim
      * sa il stergem
      */
-    @DeleteMapping("/antrenori/{id}")
+    @DeleteMapping("/trainers/{id}")
     public ResponseEntity<String> deleteAntrenor(@PathVariable Long id){
         try{
             antrenoriFitnessService.deleteAntrenor(id);

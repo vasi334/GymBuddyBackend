@@ -45,7 +45,7 @@ public class AntrenoriFitnessServiceImpl implements AntrenoriFitnessService {
                 antrenoriFitnessRepository.findByEmail(antrenorFitness.getContactInformation());
         /*exista deja un antrenor cu astfel de informatii de contact*/
         if(existentAntrenor.isPresent())
-            throw new IllegalStateException("Exissta deja un antrenor cu aceste informatii de contact!");
+            throw new IllegalStateException("Exista deja un antrenor cu aceste informatii de contact!");
         /*
         Avem nevoie de un obiect de tipul AntrenorFitness, ce il instantiem doar cu detaliile, informatiile necesare,
         specificate in instanta AntrenorFitnessDTO
@@ -70,7 +70,7 @@ public class AntrenoriFitnessServiceImpl implements AntrenoriFitnessService {
     @Override
     public void deleteAntrenor(Long id){
           boolean exists = antrenoriFitnessRepository.existsById(id);
-          if(! exists){
+          if(!exists){
               throw new IllegalStateException("Antrenorul cu id " + id +  " nu exista!");
           }
           antrenoriFitnessRepository.deleteById(id);

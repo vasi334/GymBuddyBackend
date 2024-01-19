@@ -1,6 +1,5 @@
 package com.gymbuddy.backend_project.controller;
 
-import com.gymbuddy.backend_project.dto.LoginDTO;
 import com.gymbuddy.backend_project.entity.User;
 import com.gymbuddy.backend_project.entity.Video;
 import com.gymbuddy.backend_project.repository.RoleRepository;
